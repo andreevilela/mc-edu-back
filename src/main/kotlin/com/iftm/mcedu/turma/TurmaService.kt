@@ -12,7 +12,7 @@ class TurmaService(
         turmaRepository.save(turma)
     }
 
-    fun getTurmaByCodigo(codigo: String): Turma {
+    fun buscaTurmaPeloCodigo(codigo: String): Turma {
         return turmaRepository.getTurmaByCodigo(codigo)
     }
 

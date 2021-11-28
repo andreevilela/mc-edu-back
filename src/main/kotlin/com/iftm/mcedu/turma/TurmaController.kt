@@ -33,7 +33,7 @@ class TurmaController(
 
     @PostMapping("inscricao")
     fun inscreveAluno(@RequestBody @Valid inscritos: InscreveRequest): InscreveResponse {
-        val turma = turmaService.getTurmaByCodigo(inscritos.codigo)
+        val turma = turmaService.buscaTurmaPeloCodigo(inscritos.codigo)
         var alunos: MutableList<Aluno> = ArrayList<Aluno>()
         inscritos.alunos.forEach{
             alunos.add(alunoService.buscaAluno(it))
