@@ -9,4 +9,8 @@ class ProfessorService(
     fun salvarProfessor(professor: Professor) {
         professorRepository.save(professor)
     }
+
+    fun buscaProfessores(id: Long): Professor {
+        return professorRepository.getById(id)
+    }
 }

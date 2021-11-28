@@ -1,19 +1,21 @@
 package com.iftm.mcedu.turma
 
-import com.iftm.mcedu.aluno.Aluno
 import com.iftm.mcedu.professor.Professor
 import java.util.*
-import javax.persistence.*
+import javax.validation.constraints.NotEmpty
 
-@Entity
-class TurmaRequest(
+data class TurmaRequest(
 
-    @Id
-    val id: String = UUID.randomUUID().toString(),
+    @field:NotEmpty
     val nome: String,
-    @ManyToMany
-    val professores: List<Professor>,
-    @ManyToMany
-    val alunos: List<Aluno>
+    @field:NotEmpty
+    val professores: List<Long>
 ) {
+    fun toTurmaModel(codigo: String, professores: List<Professor>): Turma {
+        return Turma(id = null, nome = this.nome, codigo = codigo, professores = professores, alunos = null)
+    }
+
+    fun toTurmaResponse(codigo: String, professores: List<Professor>): TurmaResponse {
+        return TurmaResponse(nome = this.nome, codigo = codigo, professores = professores)
+    }
 }

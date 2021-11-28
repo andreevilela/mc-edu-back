@@ -8,9 +8,8 @@ import javax.validation.constraints.NotEmpty
 
 data class TurmaResponse(
 
-    @field:NotEmpty
     val nome: String,
-    @field:NotEmpty
+    val codigo: String,
     val professores: List<Professor>
 ) {
 }

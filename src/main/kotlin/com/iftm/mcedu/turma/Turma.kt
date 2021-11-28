@@ -9,11 +9,15 @@ import javax.persistence.*
 class Turma(
 
     @Id
-    val id: String = UUID.randomUUID().toString(),
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long?,
     val nome: String,
+    val codigo: String,
     @ManyToMany
     val professores: List<Professor>,
     @ManyToMany
-    val alunos: List<Aluno>
+    val alunos: List<Aluno>?
 ) {
+
+    private constructor(): this(null, "", "", listOf(), null)
 }
