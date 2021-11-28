@@ -18,9 +18,12 @@ class TurmaController(
 
     @PostMapping
     fun salvarTurma(@RequestBody @Valid turma: TurmaRequest): TurmaResponse {
-        val professor = listOf(professorService.buscaProfessores(turma.professores[0]))
         val codigo = turmaService.geraCodigoUnico()
-        turmaService.salvarTurma(turma.toTurmaModel(codigo, professor))
-        return turma.toTurmaResponse(codigo, professor)
+        var professores: MutableList<Professor> = ArrayList<Professor>()
+        turma.professores.forEach{
+            professores.add(professorService.buscaProfessores(it))
+        }
+        turmaService.salvarTurma(turma.toTurmaModel(codigo, professores))
+        return turma.toTurmaResponse(codigo, professores)
     }
 }
