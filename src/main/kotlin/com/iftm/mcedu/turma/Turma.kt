@@ -19,5 +19,5 @@ class Turma(
     val alunos: List<Aluno>?
 ) {
 
-    private constructor(): this(null, "", "", listOf(), null)
+    private constructor(): this(null, "", "", listOf(), listOf(),)
 }

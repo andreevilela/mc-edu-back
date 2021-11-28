@@ -6,11 +6,12 @@ import org.springframework.stereotype.Service
 class ProfessorService(
     private val professorRepository: ProfessorRepository
 ) {
+
     fun salvarProfessor(professor: Professor) {
         professorRepository.save(professor)
     }
 
-    fun buscaProfessores(id: Long): Professor {
+    fun buscaProfessor(id: Long): Professor {
         return professorRepository.getById(id)
     }
 }

@@ -12,6 +12,10 @@ class TurmaService(
         turmaRepository.save(turma)
     }
 
+    fun getTurmaByCodigo(codigo: String): Turma {
+        return turmaRepository.getTurmaByCodigo(codigo)
+    }
+
     fun geraUuid(): String {
         return UUID.randomUUID().toString()
     }

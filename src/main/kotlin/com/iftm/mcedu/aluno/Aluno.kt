@@ -15,4 +15,5 @@ class Aluno(
     val email: String,
     val foto: String
 ) {
+    private constructor(): this(null, "", "", "")
 }
