@@ -11,11 +11,20 @@ class Postagem(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long?,
     val titulo: String,
-    @ManyToOne
+    @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
     val turma: Turma,
     val dataEntrega: LocalDate?,
     val descricao: String?,
     @ManyToMany(cascade = arrayOf(CascadeType.PERSIST))
     val arquivos: List<Arquivo>?
 ) {
+
+    private constructor(): this(
+        null,
+        "",
+        Turma(null, "", "", listOf(), listOf()),
+        LocalDate.now(),
+        "",
+        listOf()
+    )
 }

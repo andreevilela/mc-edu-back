@@ -10,5 +10,5 @@ class Arquivo(
     val id: Long?,
     val url: String
 ) {
-
+    private constructor(): this(null, "")
 }

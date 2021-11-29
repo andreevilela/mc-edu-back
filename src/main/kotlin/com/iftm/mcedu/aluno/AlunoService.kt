@@ -11,7 +11,7 @@ class AlunoService(
         alunoRepository.save(aluno)
     }
 
-    fun buscaAluno(id: Long): Aluno {
+    fun buscaAlunoPeloId(id: Long): Aluno {
         return alunoRepository.getById(id)
     }
 }

@@ -4,10 +4,8 @@ import com.iftm.mcedu.aluno.Aluno
 import com.iftm.mcedu.aluno.AlunoService
 import com.iftm.mcedu.professor.Professor
 import com.iftm.mcedu.professor.ProfessorService
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
 import java.util.*
 import javax.validation.Valid
 import kotlin.collections.ArrayList
@@ -21,6 +19,7 @@ class TurmaController(
 ) {
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     fun salvarTurma(@RequestBody @Valid turma: TurmaRequest): TurmaResponse {
         val codigo = turmaService.geraCodigoUnico()
         var professores: MutableList<Professor> = ArrayList<Professor>()
@@ -32,11 +31,12 @@ class TurmaController(
     }
 
     @PostMapping("inscricao")
+    @ResponseStatus(HttpStatus.CREATED)
     fun inscreveAluno(@RequestBody @Valid inscritos: InscreveRequest): InscreveResponse {
         val turma = turmaService.buscaTurmaPeloCodigo(inscritos.codigo)
         var alunos: MutableList<Aluno> = ArrayList<Aluno>()
         inscritos.alunos.forEach{
-            alunos.add(alunoService.buscaAluno(it))
+            alunos.add(alunoService.buscaAlunoPeloId(it))
         }
         turmaService.salvarTurma(inscritos.toTurmaModel(turma, alunos))
         return inscritos.toTurmaResponse(turma, alunos)
