@@ -16,7 +16,7 @@ class Entrega(
     @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
     val aluno: Aluno,
     @ManyToMany(cascade = arrayOf(CascadeType.PERSIST))
-    val arquivos: List<Arquivo>?
+    val arquivos: List<Arquivo>
 ) {
 
     constructor(postagem: Postagem, aluno: Aluno, arquivos: List<Arquivo>): this(
@@ -29,6 +29,6 @@ class Entrega(
             "",
             listOf()),
         Aluno(null, "", "", ""),
-        listOf(Arquivo(null, ""))
+        listOf()
     )
 }
