@@ -16,6 +16,10 @@ class TurmaService(
         return turmaRepository.getTurmaByCodigo(codigo)
     }
 
+    fun buscaTurmaPeloId(id: Long): Turma {
+        return turmaRepository.getById(id)
+    }
+
     fun geraUuid(): String {
         return UUID.randomUUID().toString()
     }
