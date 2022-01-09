@@ -30,4 +30,9 @@ class PostagemController(
         postagemService.salvarEntrega(entrega.toEntregaModel(postagem, aluno))
         return entrega.toEntregaResponse(postagem, aluno)
     }
+
+    @GetMapping("turma/{id}")
+    fun buscaPostagensDaTurma(@PathVariable id: Long): List<Postagem> {
+        return postagemService.buscaPostagensDaTurma(id)
+    }
 }

@@ -19,4 +19,8 @@ class PostagemService(
     fun salvarEntrega(entrega: Entrega) {
         entregaRepository.save(entrega)
     }
+
+    fun buscaPostagensDaTurma(id: Long): List<Postagem> {
+        return postagemRepository.getPostagemByTurmaId(id)
+    }
 }
