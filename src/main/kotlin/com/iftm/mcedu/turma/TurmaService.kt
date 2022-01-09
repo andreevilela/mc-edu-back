@@ -39,4 +39,12 @@ class TurmaService(
         return codigo
     }
 
+    fun buscaTurmasDoAluno(id: Long): List<Turma> {
+        return turmaRepository.getTurmaByAlunosId(id)
+    }
+
+    fun buscaTurmasDoProfessor(id: Long): List<Turma> {
+        return turmaRepository.getTurmaByProfessoresId(id)
+    }
+
 }

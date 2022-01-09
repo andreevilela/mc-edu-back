@@ -7,4 +7,8 @@ interface TurmaRepository: JpaRepository<Turma, Long> {
     fun existsByCodigo(codigo: String): Boolean
 
     fun getTurmaByCodigo(codigo: String): Turma
+
+    fun getTurmaByAlunosId(id: Long): List<Turma>
+
+    fun getTurmaByProfessoresId(id: Long): List<Turma>
 }

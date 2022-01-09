@@ -41,4 +41,14 @@ class TurmaController(
         turmaService.salvarTurma(inscritos.toTurmaModel(turma, alunos))
         return inscritos.toTurmaResponse(turma, alunos)
     }
+
+    @GetMapping("aluno/{id}")
+    fun buscaTurmasDoAluno(@PathVariable id: Long): List<Turma> {
+        return turmaService.buscaTurmasDoAluno(id)
+    }
+
+    @GetMapping("professor/{id}")
+    fun buscaTurmasDoProfessor(@PathVariable id: Long): List<Turma> {
+        return turmaService.buscaTurmasDoProfessor(id)
+    }
 }
