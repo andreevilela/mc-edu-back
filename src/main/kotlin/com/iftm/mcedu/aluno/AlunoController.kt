@@ -17,4 +17,8 @@ class AlunoController(
         return aluno.toAlunoResponse()
     }
 
+    @GetMapping("/{id}")
+    fun buscaAlunoPeloId(@PathVariable id: Long): Aluno {
+        return alunoService.buscaAlunoPeloId(id)
+    }
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
 @RestController
-@RequestMapping("postagem")
+@RequestMapping("postagens")
 class PostagemController(
     private val postagemService: PostagemService,
     private val turmaService: TurmaService,

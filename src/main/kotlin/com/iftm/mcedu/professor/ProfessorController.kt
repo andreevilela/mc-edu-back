@@ -16,4 +16,9 @@ class ProfessorController(
         professorService.salvarProfessor(professor.toProfessorModel())
         return professor.toProfessorResponse()
     }
+
+    @GetMapping("/{id}")
+    fun buscaProfessorPeloId(@PathVariable id: Long): Professor {
+        return professorService.buscaProfessorPeloId(id)
+    }
 }

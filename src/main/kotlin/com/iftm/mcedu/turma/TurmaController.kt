@@ -24,7 +24,7 @@ class TurmaController(
         val codigo = turmaService.geraCodigoUnico()
         var professores: MutableList<Professor> = ArrayList<Professor>()
         turma.professores.forEach{
-            professores.add(professorService.buscaProfessor(it))
+            professores.add(professorService.buscaProfessorPeloId(it))
         }
         turmaService.salvarTurma(turma.toTurmaModel(codigo, professores))
         return turma.toTurmaResponse(codigo, professores)
