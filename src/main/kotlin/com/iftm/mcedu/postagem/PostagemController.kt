@@ -35,4 +35,9 @@ class PostagemController(
     fun buscaPostagensDaTurma(@PathVariable id: Long): List<Postagem> {
         return postagemService.buscaPostagensDaTurma(id)
     }
+
+    @GetMapping("/{id}")
+    fun buscaPostagemPeloId(@PathVariable id: Long): Postagem {
+        return postagemService.buscaPostagemPeloId(id)
+    }
 }
