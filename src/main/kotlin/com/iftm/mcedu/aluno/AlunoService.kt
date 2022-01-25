@@ -14,4 +14,8 @@ class AlunoService(
     fun buscaAlunoPeloId(id: Long): Aluno {
         return alunoRepository.getById(id)
     }
+
+    fun verificaSeEmailExiste(email: String): Boolean {
+        return alunoRepository.existsByEmail(email)
+    }
 }

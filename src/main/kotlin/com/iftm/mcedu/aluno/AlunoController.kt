@@ -21,4 +21,9 @@ class AlunoController(
     fun buscaAlunoPeloId(@PathVariable id: Long): Aluno {
         return alunoService.buscaAlunoPeloId(id)
     }
+
+    @GetMapping("/email/{email}")
+    fun verificaSeEmailExiste(@PathVariable email: String) : Boolean {
+        return alunoService.verificaSeEmailExiste(email)
+    }
 }
