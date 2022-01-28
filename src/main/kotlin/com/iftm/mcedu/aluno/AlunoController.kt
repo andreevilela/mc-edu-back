@@ -12,9 +12,9 @@ class AlunoController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun salvaAluno(@RequestBody @Valid aluno: AlunoRequest): AlunoResponse {
-        alunoService.salvarAluno(aluno.toAlunoModel())
-        return aluno.toAlunoResponse()
+    fun salvaAluno(@RequestBody @Valid aluno: Aluno): Aluno {
+        alunoService.salvarAluno(aluno)
+        return alunoService.buscaAlunoPeloEmail(aluno.email)
     }
 
     @GetMapping("/{id}")
@@ -23,7 +23,7 @@ class AlunoController(
     }
 
     @GetMapping("/email/{email}")
-    fun verificaSeEmailExiste(@PathVariable email: String) : Boolean {
-        return alunoService.verificaSeEmailExiste(email)
+    fun buscaAlunoPeloEmail(@PathVariable email: String): Aluno {
+        return alunoService.buscaAlunoPeloEmail(email)
     }
 }

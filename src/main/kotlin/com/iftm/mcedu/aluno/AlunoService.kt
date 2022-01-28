@@ -1,5 +1,6 @@
 package com.iftm.mcedu.aluno
 
+import com.iftm.mcedu.exception.NotFoundException
 import org.springframework.stereotype.Service
 
 @Service
@@ -15,7 +16,7 @@ class AlunoService(
         return alunoRepository.getById(id)
     }
 
-    fun verificaSeEmailExiste(email: String): Boolean {
-        return alunoRepository.existsByEmail(email)
+    fun buscaAlunoPeloEmail(email: String): Aluno {
+        return alunoRepository.getByEmail(email) ?: throw NotFoundException("", "")
     }
 }
