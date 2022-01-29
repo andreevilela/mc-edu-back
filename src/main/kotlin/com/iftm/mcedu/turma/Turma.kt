@@ -1,9 +1,6 @@
 package com.iftm.mcedu.turma
 
-import com.iftm.mcedu.aluno.Aluno
-import com.iftm.mcedu.professor.Professor
 import com.iftm.mcedu.usuario.Usuario
-import java.util.*
 import javax.persistence.*
 
 @Entity

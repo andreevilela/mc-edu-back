@@ -1,11 +1,9 @@
 package com.iftm.mcedu.turma
 
-import com.iftm.mcedu.aluno.Aluno
 import com.iftm.mcedu.usuario.Usuario
 import com.iftm.mcedu.usuario.UsuarioService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import java.util.*
 import javax.validation.Valid
 
 @RestController

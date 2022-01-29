@@ -1,6 +1,5 @@
 package com.iftm.mcedu.postagem
 
-import com.iftm.mcedu.aluno.Aluno
 import com.iftm.mcedu.turma.Turma
 import com.iftm.mcedu.usuario.Usuario
 import java.time.LocalDate

@@ -1,6 +1,5 @@
 package com.iftm.mcedu.postagem
 
-import com.iftm.mcedu.aluno.Aluno
 import com.iftm.mcedu.usuario.Usuario
 import javax.validation.constraints.NotNull
 

@@ -1,6 +1,5 @@
 package com.iftm.mcedu.postagem
 
-import com.iftm.mcedu.aluno.AlunoService
 import com.iftm.mcedu.turma.TurmaService
 import com.iftm.mcedu.usuario.UsuarioService
 import org.springframework.http.HttpStatus
