@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
+@Deprecated("Testando entidade Usuario")
 @RestController
 @RequestMapping("alunos")
 class AlunoController(

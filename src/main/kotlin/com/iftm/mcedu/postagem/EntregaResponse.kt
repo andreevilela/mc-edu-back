@@ -1,11 +1,11 @@
 package com.iftm.mcedu.postagem
 
-import com.iftm.mcedu.aluno.Aluno
+import com.iftm.mcedu.usuario.Usuario
 
 data class EntregaResponse(
 
     val postagem: Postagem,
-    val aluno: Aluno,
+    val aluno: Usuario,
     val arquivos: List<Arquivo>
 ) {
 }

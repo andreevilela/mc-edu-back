@@ -2,6 +2,7 @@ package com.iftm.mcedu.aluno
 
 import javax.validation.constraints.NotEmpty
 
+@Deprecated("Testando entidade Usuario")
 data class AlunoRequest(
 
     @field:NotEmpty

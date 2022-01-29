@@ -2,6 +2,7 @@ package com.iftm.mcedu.postagem
 
 import com.iftm.mcedu.aluno.Aluno
 import com.iftm.mcedu.turma.Turma
+import com.iftm.mcedu.usuario.Usuario
 import java.time.LocalDate
 import javax.persistence.*
 
@@ -14,21 +15,22 @@ class Entrega(
     @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
     val postagem: Postagem,
     @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
-    val aluno: Aluno,
+    val aluno: Usuario,
     @ManyToMany(cascade = arrayOf(CascadeType.PERSIST))
     val arquivos: List<Arquivo>
 ) {
 
-    constructor(postagem: Postagem, aluno: Aluno, arquivos: List<Arquivo>): this(
+    constructor(postagem: Postagem, aluno: Usuario, arquivos: List<Arquivo>): this(
         null,
         Postagem(
             null,
             "",
+            Usuario("", "", "", ""),
             Turma(null, "", "", listOf(), listOf()),
             LocalDate.now(),
             "",
             listOf()),
-        Aluno(null, "", "", ""),
+        Usuario("", "", "", ""),
         listOf()
     )
 }

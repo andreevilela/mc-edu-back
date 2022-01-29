@@ -6,6 +6,7 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.validation.constraints.NotBlank
 
+@Deprecated("Testando entidade Usuario")
 data class AlunoResponse(
 
     val nome: String,

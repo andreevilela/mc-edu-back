@@ -1,15 +1,19 @@
-package com.iftm.mcedu.professor
+package com.iftm.mcedu.usuario
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 
-@Deprecated("Testando entidade Usuario")
-data class ProfessorResponse(
+@Entity
+class Usuario(
 
+    @Id
+    val id: String,
     val nome: String,
     val email: String,
-    val foto: String
+    val foto: String,
+
 ) {
+    private constructor(): this("", "", "", "")
 }

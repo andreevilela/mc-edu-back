@@ -2,6 +2,7 @@ package com.iftm.mcedu.professor
 
 import org.springframework.stereotype.Service
 
+@Deprecated("Testando entidade Usuario")
 @Service
 class ProfessorService(
     private val professorRepository: ProfessorRepository

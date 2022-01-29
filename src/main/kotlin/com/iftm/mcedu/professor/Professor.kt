@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 
+@Deprecated("Testando entidade Usuario")
 @Entity
 class Professor(
 

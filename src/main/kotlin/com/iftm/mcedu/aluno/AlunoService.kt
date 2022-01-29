@@ -3,6 +3,7 @@ package com.iftm.mcedu.aluno
 import com.iftm.mcedu.exception.NotFoundException
 import org.springframework.stereotype.Service
 
+@Deprecated("Testando entidade Usuario")
 @Service
 class AlunoService(
     private val alunoRepository: AlunoRepository

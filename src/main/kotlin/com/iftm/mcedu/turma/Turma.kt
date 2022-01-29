@@ -2,6 +2,7 @@ package com.iftm.mcedu.turma
 
 import com.iftm.mcedu.aluno.Aluno
 import com.iftm.mcedu.professor.Professor
+import com.iftm.mcedu.usuario.Usuario
 import java.util.*
 import javax.persistence.*
 
@@ -14,9 +15,9 @@ class Turma(
     val nome: String,
     val codigo: String,
     @ManyToMany
-    val professores: List<Professor>,
+    val professores: List<Usuario>,
     @ManyToMany
-    val alunos: List<Aluno>?
+    val alunos: List<Usuario>?
 ) {
 
     private constructor(): this(null, "", "", listOf(), listOf())

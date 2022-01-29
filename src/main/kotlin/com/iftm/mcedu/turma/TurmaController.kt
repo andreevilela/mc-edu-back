@@ -1,30 +1,27 @@
 package com.iftm.mcedu.turma
 
 import com.iftm.mcedu.aluno.Aluno
-import com.iftm.mcedu.aluno.AlunoService
-import com.iftm.mcedu.professor.Professor
-import com.iftm.mcedu.professor.ProfessorService
+import com.iftm.mcedu.usuario.Usuario
+import com.iftm.mcedu.usuario.UsuarioService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.util.*
 import javax.validation.Valid
-import kotlin.collections.ArrayList
 
 @RestController
 @RequestMapping("turmas")
 class TurmaController(
     private val turmaService: TurmaService,
-    private val professorService: ProfessorService,
-    private val alunoService: AlunoService
+    private val usuarioService: UsuarioService
 ) {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     fun salvarTurma(@RequestBody @Valid turma: TurmaRequest): TurmaResponse {
         val codigo = turmaService.geraCodigoUnico()
-        var professores: MutableList<Professor> = ArrayList<Professor>()
+        var professores: MutableList<Usuario> = ArrayList<Usuario>()
         turma.professores.forEach{
-            professores.add(professorService.buscaProfessorPeloId(it))
+            professores.add(usuarioService.buscaUsuarioPeloId(it))
         }
         turmaService.salvarTurma(turma.toTurmaModel(codigo, professores))
         return turma.toTurmaResponse(codigo, professores)
@@ -34,21 +31,21 @@ class TurmaController(
     @ResponseStatus(HttpStatus.CREATED)
     fun inscreveAluno(@RequestBody @Valid inscritos: InscreveRequest): InscreveResponse {
         val turma = turmaService.buscaTurmaPeloCodigo(inscritos.codigo)
-        var alunos: MutableList<Aluno> = ArrayList<Aluno>()
+        var alunos: MutableList<Usuario> = ArrayList<Usuario>()
         inscritos.alunos.forEach{
-            alunos.add(alunoService.buscaAlunoPeloId(it))
+            alunos.add(usuarioService.buscaUsuarioPeloId(it))
         }
         turmaService.salvarTurma(inscritos.toTurmaModel(turma, alunos))
         return inscritos.toTurmaResponse(turma, alunos)
     }
 
     @GetMapping("aluno/{id}")
-    fun buscaTurmasDoAluno(@PathVariable id: Long): List<Turma> {
+    fun buscaTurmasDoAluno(@PathVariable id: String): List<Turma> {
         return turmaService.buscaTurmasDoAluno(id)
     }
 
     @GetMapping("professor/{id}")
-    fun buscaTurmasDoProfessor(@PathVariable id: Long): List<Turma> {
+    fun buscaTurmasDoProfessor(@PathVariable id: String): List<Turma> {
         return turmaService.buscaTurmasDoProfessor(id)
     }
 }

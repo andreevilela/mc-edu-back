@@ -1,6 +1,6 @@
 package com.iftm.mcedu.turma
 
-import com.iftm.mcedu.professor.Professor
+import com.iftm.mcedu.usuario.Usuario
 import java.util.*
 import javax.validation.constraints.NotEmpty
 
@@ -9,13 +9,13 @@ data class TurmaRequest(
     @field:NotEmpty
     val nome: String,
     @field:NotEmpty
-    val professores: List<Long>
+    val professores: List<String>
 ) {
-    fun toTurmaModel(codigo: String, professores: List<Professor>): Turma {
+    fun toTurmaModel(codigo: String, professores: List<Usuario>): Turma {
         return Turma(id = null, nome = this.nome, codigo = codigo, professores = professores, alunos = null)
     }
 
-    fun toTurmaResponse(codigo: String, professores: List<Professor>): TurmaResponse {
+    fun toTurmaResponse(codigo: String, professores: List<Usuario>): TurmaResponse {
         return TurmaResponse(nome = this.nome, codigo = codigo, professores = professores)
     }
 }

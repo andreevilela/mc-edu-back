@@ -3,6 +3,7 @@ package com.iftm.mcedu.professor
 import javax.persistence.Entity
 import javax.validation.constraints.NotEmpty
 
+@Deprecated("Testando entidade Usuario")
 data class ProfessorRequest(
 
     @field:NotEmpty

@@ -1,6 +1,7 @@
 package com.iftm.mcedu.postagem
 
 import com.iftm.mcedu.turma.Turma
+import com.iftm.mcedu.usuario.Usuario
 import java.time.LocalDate
 import javax.persistence.*
 
@@ -12,6 +13,8 @@ class Postagem(
     val id: Long?,
     val titulo: String,
     @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
+    val usuario: Usuario,
+    @ManyToOne(cascade = arrayOf(CascadeType.PERSIST))
     val turma: Turma,
     val dataEntrega: LocalDate?,
     val descricao: String?,
@@ -22,6 +25,7 @@ class Postagem(
     private constructor(): this(
         null,
         "",
+        Usuario("", "", "", ""),
         Turma(null, "", "", listOf(), listOf()),
         LocalDate.now(),
         "",
