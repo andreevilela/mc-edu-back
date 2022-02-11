@@ -21,6 +21,6 @@ class PostagemService(
     }
 
     fun buscaPostagensDaTurma(id: Long): List<Postagem> {
-        return postagemRepository.getPostagemByTurmaId(id)
+        return postagemRepository.getPostagemByTurmaIdOrderByIdDesc(id)
     }
 }

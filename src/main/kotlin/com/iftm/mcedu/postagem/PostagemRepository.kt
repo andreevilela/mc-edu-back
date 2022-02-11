@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface PostagemRepository: JpaRepository<Postagem, Long> {
 
-    fun getPostagemByTurmaId(id: Long): List<Postagem>
+    fun getPostagemByTurmaIdOrderByIdDesc(id: Long): List<Postagem>
 }
