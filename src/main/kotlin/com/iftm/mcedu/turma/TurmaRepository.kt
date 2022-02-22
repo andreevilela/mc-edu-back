@@ -8,8 +8,8 @@ interface TurmaRepository: JpaRepository<Turma, Long> {
 
     fun getTurmaByCodigo(codigo: String): Turma
 
-    fun getTurmaByAlunosId(id: String): List<Turma>
+    fun getTurmaByAlunosIdOrderByIdDesc(id: String): List<Turma>
 
-    fun getTurmaByProfessoresId(id: String): List<Turma>
+    fun getTurmaByProfessoresIdOrderByIdDesc(id: String): List<Turma>
 
 }

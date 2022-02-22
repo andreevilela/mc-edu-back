@@ -40,15 +40,15 @@ class TurmaService(
     }
 
     fun buscaTurmasDoUsuario(id: String): List<Turma> {
-        val turmasAluno = turmaRepository.getTurmaByAlunosId(id)
-        val turmasProf = turmaRepository.getTurmaByProfessoresId(id)
+        val turmasAluno = turmaRepository.getTurmaByAlunosIdOrderByIdDesc(id)
+        val turmasProf = turmaRepository.getTurmaByProfessoresIdOrderByIdDesc(id)
         if (turmasAluno.isEmpty())
             return turmasProf
         return turmasAluno
     }
 
     fun buscaTurmasDoProfessor(id: String): List<Turma> {
-        return turmaRepository.getTurmaByProfessoresId(id)
+        return turmaRepository.getTurmaByProfessoresIdOrderByIdDesc(id)
     }
 
 }
