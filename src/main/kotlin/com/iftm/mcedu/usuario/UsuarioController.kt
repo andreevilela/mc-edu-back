@@ -12,8 +12,8 @@ class UsuarioController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun salvarUsuario(@RequestBody @Valid usuario: Usuario): Usuario {
-        return usuarioService.salvarUsuario(usuario)
+    fun salvaUsuario(@RequestBody @Valid usuario: Usuario): Usuario {
+        return usuarioService.salvaUsuario(usuario)
     }
 
     @GetMapping("/{id}")

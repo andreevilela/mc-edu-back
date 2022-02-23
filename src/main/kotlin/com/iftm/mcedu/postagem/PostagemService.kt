@@ -8,7 +8,7 @@ class PostagemService(
     private val entregaRepository: EntregaRepository
 ) {
 
-    fun salvarPostagem(postagem: Postagem) {
+    fun salvaPostagem(postagem: Postagem) {
         postagemRepository.save(postagem)
     }
 
@@ -16,7 +16,7 @@ class PostagemService(
         return postagemRepository.getById(id)
     }
 
-    fun salvarEntrega(entrega: Entrega) {
+    fun salvaEntrega(entrega: Entrega) {
         entregaRepository.save(entrega)
     }
 

@@ -8,7 +8,7 @@ class TurmaService(
     private val turmaRepository: TurmaRepository
 ) {
 
-    fun salvarTurma(turma: Turma) {
+    fun salvaTurma(turma: Turma) {
         turmaRepository.save(turma)
     }
 

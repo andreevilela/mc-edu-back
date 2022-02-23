@@ -7,7 +7,7 @@ class UsuarioService(
     private val usuarioRepository: UsuarioRepository
 ) {
 
-    fun salvarUsuario(usuario: Usuario): Usuario {
+    fun salvaUsuario(usuario: Usuario): Usuario {
         return usuarioRepository.save(usuario)
     }
 

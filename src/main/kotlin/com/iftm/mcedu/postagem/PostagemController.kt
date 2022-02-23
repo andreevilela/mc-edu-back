@@ -16,19 +16,19 @@ class PostagemController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun salvarPostagem(@RequestBody @Valid postagem: PostagemRequest): PostagemResponse {
+    fun salvaPostagem(@RequestBody @Valid postagem: PostagemRequest): PostagemResponse {
         val turma = turmaService.buscaTurmaPeloId(postagem.turma)
         val usuario = usuarioService.buscaUsuarioPeloId(postagem.usuario)
-        postagemService.salvarPostagem(postagem.toPostagemModel(turma, usuario))
+        postagemService.salvaPostagem(postagem.toPostagemModel(turma, usuario))
         return postagem.toPostagemResponse(turma)
     }
 
     @PostMapping("entrega")
     @ResponseStatus(HttpStatus.CREATED)
-    fun entregarAtividade(@RequestBody @Valid entrega: EntregaRequest) : EntregaResponse {
+    fun entregaAtividade(@RequestBody @Valid entrega: EntregaRequest) : EntregaResponse {
         val postagem = postagemService.buscaPostagemPeloId(entrega.postagem)
         val aluno = usuarioService.buscaUsuarioPeloId(entrega.aluno)
-        postagemService.salvarEntrega(entrega.toEntregaModel(postagem, aluno))
+        postagemService.salvaEntrega(entrega.toEntregaModel(postagem, aluno))
         return entrega.toEntregaResponse(postagem, aluno)
     }
 

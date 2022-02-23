@@ -15,13 +15,13 @@ class TurmaController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun salvarTurma(@RequestBody @Valid turma: TurmaRequest): TurmaResponse {
+    fun salvaTurma(@RequestBody @Valid turma: TurmaRequest): TurmaResponse {
         val codigo = turmaService.geraCodigoUnico()
         var professores: MutableList<Usuario> = ArrayList<Usuario>()
         turma.professores.forEach{
             professores.add(usuarioService.buscaUsuarioPeloId(it))
         }
-        turmaService.salvarTurma(turma.toTurmaModel(codigo, professores))
+        turmaService.salvaTurma(turma.toTurmaModel(codigo, professores))
         return turma.toTurmaResponse(codigo, professores)
     }
 
@@ -33,12 +33,12 @@ class TurmaController(
         inscritos.alunos.forEach{
             alunos.add(usuarioService.buscaUsuarioPeloId(it))
         }
-        turmaService.salvarTurma(inscritos.toTurmaModel(turma, alunos))
+        turmaService.salvaTurma(inscritos.toTurmaModel(turma, alunos))
         return inscritos.toTurmaResponse(turma, alunos)
     }
 
     @GetMapping("usuario/{id}")
-    fun buscaTurmasDoAluno(@PathVariable id: String): List<Turma> {
+    fun buscaTurmasDoUsuario(@PathVariable id: String): List<Turma> {
         return turmaService.buscaTurmasDoUsuario(id)
     }
 
