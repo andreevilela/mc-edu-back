@@ -18,7 +18,7 @@ class Postagem(
     val turma: Turma,
     val dataEntrega: LocalDate?,
     val descricao: String?,
-    @ManyToMany(cascade = arrayOf(CascadeType.PERSIST))
+    @ManyToMany(cascade = arrayOf(CascadeType.ALL))
     val arquivos: List<Arquivo>?
 ) {
 

@@ -41,4 +41,12 @@ class PostagemController(
     fun buscaPostagemPeloId(@PathVariable id: Long): Postagem {
         return postagemService.buscaPostagemPeloId(id)
     }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun editaPostagem(@PathVariable id: Long, @RequestBody postagem: PostagemRequest) {
+        val turma = turmaService.buscaTurmaPeloId(postagem.turma)
+        val usuario = usuarioService.buscaUsuarioPeloId(postagem.usuario)
+        postagemService.editaPostagem(postagem.toPostagemModelId(id, turma, usuario))
+    }
 }

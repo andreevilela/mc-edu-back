@@ -19,11 +19,15 @@ data class PostagemRequest(
     val arquivos: List<Arquivo>?
 ) {
     fun toPostagemModel(turma: Turma, usuario: Usuario): Postagem {
-        return Postagem(id = null, titulo = this.titulo, usuario = usuario, turma = turma, dataEntrega = this.dataEntrega, descricao = this.descricao, arquivos = arquivos)
+        return Postagem(id = null, titulo = this.titulo, usuario = usuario, turma = turma, dataEntrega = this.dataEntrega, descricao = this.descricao, arquivos = this.arquivos)
+    }
+
+    fun toPostagemModelId(id: Long, turma: Turma, usuario: Usuario): Postagem {
+        return Postagem(id = id, titulo = this.titulo, usuario = usuario, turma = turma, dataEntrega = this.dataEntrega, descricao = this.descricao, arquivos = this.arquivos)
     }
 
     fun toPostagemResponse(turma: Turma): PostagemResponse {
-        return PostagemResponse(titulo = this.titulo, turma = turma, dataEntrega = this.dataEntrega, descricao = this.descricao, arquivos = arquivos)
+        return PostagemResponse(titulo = this.titulo, turma = turma, dataEntrega = this.dataEntrega, descricao = this.descricao, arquivos = this.arquivos)
     }
 
 }
