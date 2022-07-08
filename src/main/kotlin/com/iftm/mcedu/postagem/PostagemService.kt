@@ -31,4 +31,8 @@ class PostagemService(
     fun deletaPostagemPeloId(id: Long) {
         postagemRepository.deleteById(id)
     }
+
+    fun buscaEntregasDaPostagem(id: Long): List<Entrega> {
+        return entregaRepository.getEntregaByPostagemId(id)
+    }
 }

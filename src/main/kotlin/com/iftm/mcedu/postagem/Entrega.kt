@@ -19,6 +19,20 @@ class Entrega(
     val arquivos: List<Arquivo>
 ) {
 
+    private constructor(): this(
+        null,
+        Postagem(
+            null,
+            "",
+            Usuario("", "", "", ""),
+            Turma(null, "", "", listOf(), listOf()),
+            LocalDate.now(),
+            "",
+            listOf()),
+        Usuario("", "", "", ""),
+        listOf()
+    )
+
     constructor(postagem: Postagem, aluno: Usuario, arquivos: List<Arquivo>): this(
         null,
         Postagem(

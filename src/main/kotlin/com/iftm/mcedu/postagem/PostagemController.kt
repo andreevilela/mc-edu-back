@@ -54,4 +54,9 @@ class PostagemController(
     fun deletaPostagemPeloId(@PathVariable id: Long) {
         return postagemService.deletaPostagemPeloId(id)
     }
+
+    @GetMapping("/{id}/entregas")
+    fun buscaEntregasDaPostagem(@PathVariable id: Long): List<Entrega> {
+        return postagemService.buscaEntregasDaPostagem(id)
+    }
 }
