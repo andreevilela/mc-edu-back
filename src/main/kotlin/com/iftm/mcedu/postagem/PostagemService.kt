@@ -27,4 +27,8 @@ class PostagemService(
     fun editaPostagem(postagem: Postagem) {
         postagemRepository.save(postagem)
     }
+
+    fun deletaPostagemPeloId(id: Long) {
+        postagemRepository.deleteById(id)
+    }
 }

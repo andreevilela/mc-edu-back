@@ -49,4 +49,9 @@ class PostagemController(
         val usuario = usuarioService.buscaUsuarioPeloId(postagem.usuario)
         postagemService.editaPostagem(postagem.toPostagemModelId(id, turma, usuario))
     }
+
+    @DeleteMapping("/{id}")
+    fun deletaPostagemPeloId(@PathVariable id: Long) {
+        return postagemService.deletaPostagemPeloId(id)
+    }
 }
