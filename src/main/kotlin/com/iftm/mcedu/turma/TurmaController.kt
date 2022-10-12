@@ -37,6 +37,11 @@ class TurmaController(
         return inscritos.toTurmaResponse(turma, alunos)
     }
 
+    @GetMapping("{id}")
+    fun buscaTurmaPeloId(@PathVariable id: Long): Turma {
+        return turmaService.buscaTurmaPeloId(id)
+    }
+
     @GetMapping("usuario/{id}")
     fun buscaTurmasDoUsuario(@PathVariable id: String): List<Turma> {
         return turmaService.buscaTurmasDoUsuario(id)
