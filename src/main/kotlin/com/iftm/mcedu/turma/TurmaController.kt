@@ -29,7 +29,7 @@ class TurmaController(
     @ResponseStatus(HttpStatus.CREATED)
     fun inscreveAluno(@RequestBody @Valid inscritos: InscreveRequest): InscreveResponse {
         val turma = turmaService.buscaTurmaPeloCodigo(inscritos.codigo)
-        var alunos: MutableList<Usuario> = ArrayList<Usuario>()
+        var alunos: MutableList<Usuario> = turma.alunos as MutableList<Usuario>
         inscritos.alunos.forEach{
             alunos.add(usuarioService.buscaUsuarioPeloId(it))
         }
