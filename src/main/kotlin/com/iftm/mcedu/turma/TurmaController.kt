@@ -51,4 +51,24 @@ class TurmaController(
     fun buscaTurmasDoProfessor(@PathVariable id: String): List<Turma> {
         return turmaService.buscaTurmasDoProfessor(id)
     }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun editaTurma(@PathVariable id: Long, @RequestBody @Valid turmaRequest: TurmaRequest) {
+        var turma = turmaService.buscaTurmaPeloId(id)
+        val codigo = turma.codigo
+        var professores: MutableList<Usuario> = ArrayList<Usuario>()
+        turmaRequest.professores.forEach{
+            professores.add(usuarioService.buscaUsuarioPeloId(it))
+        }
+        turmaService.salvaTurma(turmaRequest.toTurmaModel(id, codigo, professores))
+    }
+
+    @PutMapping("/{id}/arquiva")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun arquivaTurma(@PathVariable id: Long) {
+        var turma = turmaService.buscaTurmaPeloId(id)
+        turma.status = false
+        turmaService.editaTurma(turma)
+    }
 }

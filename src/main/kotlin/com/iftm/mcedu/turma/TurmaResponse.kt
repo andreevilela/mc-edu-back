@@ -6,6 +6,7 @@ data class TurmaResponse(
 
     val nome: String,
     val codigo: String,
-    val professores: List<Usuario>
+    val professores: List<Usuario>,
+    val status: Boolean
 ) {
 }

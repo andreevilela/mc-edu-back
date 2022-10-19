@@ -9,7 +9,8 @@ data class PostagemResponse(
     val turma: Turma,
     val dataEntrega: LocalDate?,
     val descricao: String?,
-    val arquivos: List<Arquivo>?
+    val arquivos: List<Arquivo>?,
+    val status: Boolean
 ) {
 
 }

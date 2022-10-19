@@ -50,6 +50,14 @@ class PostagemController(
         postagemService.editaPostagem(postagem.toPostagemModelId(id, turma, usuario))
     }
 
+    @PutMapping("/{id}/arquiva")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun arquivaPostagem(@PathVariable id: Long) {
+        var postagem = postagemService.buscaPostagemPeloId(id)
+        postagem.status = false
+        postagemService.editaPostagem(postagem)
+    }
+
     @DeleteMapping("/{id}")
     fun deletaPostagemPeloId(@PathVariable id: Long) {
         return postagemService.deletaPostagemPeloId(id)

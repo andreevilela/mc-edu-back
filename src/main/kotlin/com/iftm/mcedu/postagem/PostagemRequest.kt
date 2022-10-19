@@ -16,7 +16,8 @@ data class PostagemRequest(
     val turma: Long,
     val dataEntrega: LocalDate?,
     val descricao: String?,
-    val arquivos: List<Arquivo>?
+    val arquivos: List<Arquivo>?,
+    val status : Boolean = true
 ) {
     fun toPostagemModel(turma: Turma, usuario: Usuario): Postagem {
         return Postagem(id = null, titulo = this.titulo, usuario = usuario, turma = turma, dataEntrega = this.dataEntrega, descricao = this.descricao, arquivos = this.arquivos)
@@ -27,7 +28,7 @@ data class PostagemRequest(
     }
 
     fun toPostagemResponse(turma: Turma): PostagemResponse {
-        return PostagemResponse(titulo = this.titulo, turma = turma, dataEntrega = this.dataEntrega, descricao = this.descricao, arquivos = this.arquivos)
+        return PostagemResponse(titulo = this.titulo, turma = turma, dataEntrega = this.dataEntrega, descricao = this.descricao, arquivos = this.arquivos, status = this.status)
     }
 
 }

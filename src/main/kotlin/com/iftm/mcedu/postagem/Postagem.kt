@@ -19,7 +19,8 @@ class Postagem(
     val dataEntrega: LocalDate?,
     val descricao: String?,
     @ManyToMany(cascade = arrayOf(CascadeType.ALL))
-    val arquivos: List<Arquivo>?
+    val arquivos: List<Arquivo>?,
+    var status: Boolean = true
 ) {
 
     private constructor(): this(
@@ -29,6 +30,7 @@ class Postagem(
         Turma(null, "", "", listOf(), listOf()),
         LocalDate.now(),
         "",
-        listOf()
+        listOf(),
+        true
     )
 }

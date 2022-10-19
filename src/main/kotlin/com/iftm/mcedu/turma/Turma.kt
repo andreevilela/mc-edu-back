@@ -14,8 +14,9 @@ class Turma(
     @ManyToMany
     val professores: List<Usuario>,
     @ManyToMany
-    val alunos: List<Usuario>?
+    val alunos: List<Usuario>?,
+    var status: Boolean = true
 ) {
 
-    private constructor(): this(null, "", "", listOf(), listOf())
+    private constructor(): this(null, "", "", listOf(), listOf(), true)
 }
